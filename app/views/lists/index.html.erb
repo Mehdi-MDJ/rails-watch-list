@@ -1,9 +1,24 @@
-<p>coucou</p>
-<ul>
-  <% @lists.each do |list| %>
-    <li>
-    <%= link_to list.name, list_path(list)%></li>
-  <% end %>
-</ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.lambesc.fr/fileadmin/user_upload/cinema.jpg);">
+  <div class="container">
+    <h1>Sauvegarde ton film</strong>!</h1>
+    <h3 class="typed_js" data-controller="typed_js"></h3>
+  </div>
+</div>
 
-<p><%= link_to "New list", new_list_path%></p>
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0">Lists</h3>
+  <%= link_to "New list", new_list_path, class: "btn-ghost" %>
+  </div>
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="co-12 col-sm-6 col-md-4 mb-3">
+        <%= link_to list_path(list), class:"text-decoration-none" do %>
+          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)">
+            <%= list.name %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
